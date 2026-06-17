@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Face Age Cafe Kiosk</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="kiosk" data-mode="normal">
+      <section class="order-panel">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Smart Cafe</p>
+            <h1>주문하기</h1>
+          </div>
+          <div class="mode-pill" id="modePill">일반 화면</div>
+        </header>
+
+        <nav class="tabs" aria-label="메뉴 종류">
+          <button class="tab active" data-category="coffee">커피</button>
+          <button class="tab" data-category="nonCoffee">논커피</button>
+          <button class="tab" data-category="dessert">디저트</button>
+        </nav>
+
+        <section class="menu-grid" id="menuGrid" aria-label="메뉴 목록"></section>
+      </section>
+
+      <aside class="side-panel">
+        <section class="camera-box">
+          <video id="camera" autoplay playsinline muted></video>
+          <canvas id="snapshot" width="320" height="240"></canvas>
+          <div class="camera-status" id="cameraStatus">카메라 준비 중</div>
+        </section>
+
+        <section class="cart">
+          <div class="cart-head">
+            <h2>주문 내역</h2>
+            <button id="clearCart" class="icon-button" aria-label="비우기">×</button>
+          </div>
+          <div id="cartItems" class="cart-items"></div>
+          <div class="total-row">
+            <span>합계</span>
+            <strong id="totalPrice">0원</strong>
+          </div>
+          <button class="pay-button" id="payButton">결제하기</button>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
