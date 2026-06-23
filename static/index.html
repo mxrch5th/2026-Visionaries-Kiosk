@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Cafe Kiosk</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="kiosk-container">
+        <div class="left-panel">
+            <div class="camera-box">
+                <video id="webcam" autoplay playsinline></video>
+            </div>
+            <div class="status-box">
+                <span id="status-text">메뉴를 선택하시면 나이를 판별합니다.</span>
+                <div id="probability-text">50대 이상 가능성: 0.0%</div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <h2 id="menu-title">☕ 추천 메뉴판</h2>
+            <div id="menu-container" class="menu-grid">
+                </div>
+            
+            <div class="cart-box">
+                <h3>주문 바구니</h3>
+                <div id="cart-items"></div>
+                <div class="cart-footer">
+                    <span id="total-price">총 금액: 0원</span>
+                    <button class="pay-btn" onclick="clearCart()">💳 카드 결제하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
