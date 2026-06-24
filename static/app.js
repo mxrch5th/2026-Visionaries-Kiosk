@@ -31,7 +31,7 @@ navigator.mediaDevices.getUserMedia({ video: { width: 400, height: 300 } })
         video.srcObject = stream;
         statusText.innerText = "사용자를 인식하는 중입니다...";
         
-        // 🚨 얼굴이 제대로 감지될 때까지 0.5초마다 계속 시도 (단, 성공하면 바로 멈춤)
+        // 얼굴이 제대로 감지될 때까지 0.5초마다 계속 시도 (단, 성공하면 바로 멈춤)
         checkInterval = setInterval(scanUntilSuccess, 500);
     })
     .catch(err => {
@@ -39,7 +39,7 @@ navigator.mediaDevices.getUserMedia({ video: { width: 400, height: 300 } })
         statusText.innerText = "카메라 연결 실패";
     });
 
-// 2. 🚨 [핵심 수정] 성공할 때까지만 스캔하는 함수
+// 2. 성공할 때까지만 스캔하는 함수
 function scanUntilSuccess() {
     // 만약 다른 경로로 이미 판별이 완료되었다면 루프 종료
     if (isAgeChecked) {
@@ -58,7 +58,7 @@ function scanUntilSuccess() {
     
     const dataUrl = canvas.toDataURL('image/jpeg');
 
-    // 원래 잘 되던 네 백엔드 주소(너가 원래 쓰던 주소가 /predict면 그대로, 아니면 원래 주소로 적어줘)
+    // 백엔드 주소
     fetch('/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -72,9 +72,9 @@ function scanUntilSuccess() {
             return;
         }
 
-        // 🚨 얼굴이 제대로 감지되어 판별값이 넘어온 순간!
+        // 얼굴이 제대로 감지되어 판별값이 넘어온 순간
         isAgeChecked = true; 
-        clearInterval(checkInterval); // 0.5초마다 찍던 반복 타이머를 완전히 정지 (깜빡임 원천 차단)
+        clearInterval(checkInterval); // 0.5초마다 찍던 반복 타이머를 완전히 정지
         
         let prob = data.percent !== undefined ? data.percent : (data.confidence * 100 || 0);
         probabilityText.innerText = `50대 이상 가능성: ${prob.toFixed(1)}%`;
