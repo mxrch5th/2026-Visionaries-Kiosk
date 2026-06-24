@@ -39,7 +39,7 @@ uvicorn app.main:app --reload
 
 
 ### **기술 스택**
-Python, Tkinter (UI)
-PyTorch (AI 모델)
-OpenCV (얼굴 감지)
-PIL (이미지 처리)
+- Python, Tkinter (UI)
+- PyTorch (AI 모델)
+- OpenCV (얼굴 감지)
+- PIL (이미지 처리)
