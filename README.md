@@ -1,5 +1,5 @@
 # 2026 Visionaries Kiosk
-## 스마트 카페 키오스크 - 연령 맞춤형 UI 시스템
+> 스마트 카페 키오스크 - 연령 맞춤형 UI 시스템
 
 ### 프로젝트 개요
 - 웹캠 기반 실시간 얼굴 인식
@@ -22,16 +22,17 @@
 ### 설치 및 실행 방법
 ```bash
 pip install -r requirements.txt
-python kiosk_app_v2.py
+uvicorn app.main:app --reload
 ```
+브라우저에서 `http://localhost:8000` 으로 접속하여 키오스크 UI 사용 가능
 
 
 ### **주요 기능**
-**실시간 얼굴 감지**: OpenCV 기반 Haar Cascade
+**1. 실시간 얼굴 감지**: OpenCV 기반 Haar Cascade
 
-**연령 분류**: PyTorch MobileNetV2 모델 (정확도 91% ~ 94%)
+**2. 연령 분류**: PyTorch MobileNetV2 모델 (정확도 91% ~ 94%)
 
-**UI 모드 전환**:
+**3. UI 모드 전환**:
 - 일반 모드: 일반 테마, 작은 글씨, 작은 아이콘
 - 고령자 모드: 강조된 테마, 큰 글씨, 큰 아이콘
 - 메뉴 관리: 4가지 음료/디저트
