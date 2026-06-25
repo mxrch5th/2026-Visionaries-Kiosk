@@ -93,7 +93,7 @@ class AgeModel:
 
 age_model = AgeModel()
 
-# [수정] 터미널 로그에 찍힌 대로 원래 친구 주소 규격인 /predict 로 복구
+# 터미널 로그에 찍힌 대로 원래 친구 주소 규격인 /predict 로 복구
 @app.post("/predict")
 async def predict_age(payload: FramePayload):
     try:
