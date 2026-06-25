@@ -17,7 +17,7 @@ const menus = {
     ],
     easy: [
         { name: "따뜻한 아메리카노 (커피)", price: 3000, icon: "☕" },
-        { name: "달콤한 밀크커피 (라떼)", price: 4000, icon: "🤎" },
+        { name: "달콤한 우유커피 (라떼)", price: 4000, icon: "🤎" },
         { name: "몸에 좋은 대추차", price: 5000, icon: "🍵" },
         { name: "시원하고 달달한 식혜", price: 4000, icon: "🍚" }
     ]
